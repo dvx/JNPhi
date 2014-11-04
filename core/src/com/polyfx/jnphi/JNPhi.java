@@ -61,10 +61,10 @@ public class JNPhi {
 	}
 
 	public void unload() {
-		watcher.stop();
+		watcher.interrupt();
 	}
 	
-	public static Integer jz() {
+	public Integer jz() {
 		return new Integer(0);
 	}
 }

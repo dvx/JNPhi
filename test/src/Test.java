@@ -2,7 +2,7 @@ import com.polyfx.jnphi.*;
 
 public class Test {
 	public static void main(String args[]) {
-
+		
 		JNPhi ф = new JNPhi();
 		try {
 			long startTime = System.currentTimeMillis();
@@ -21,7 +21,7 @@ public class Test {
 			
 			startTime = System.currentTimeMillis();
 			for (int i = 0; i < 10000000; ++i) {
-				JNPhi.jz();
+				ф.jz();
 			}
 			endTime = System.currentTimeMillis();	
 			System.out.println("Total execution time: " + (endTime - startTime)+ "ms");
