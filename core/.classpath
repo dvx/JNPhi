@@ -6,6 +6,5 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="jnphi-jni"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/jnphi-jni"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

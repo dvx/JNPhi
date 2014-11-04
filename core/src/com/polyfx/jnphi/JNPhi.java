@@ -3,7 +3,7 @@ package com.polyfx.jnphi;
 public class JNPhi {
 	
 	static {
-		System.loadLibrary("bin/jnphi-jni");
+		System.loadLibrary("jnphi-jni");
 	}
 
 	private ExecutableAccessor accessor = new ExecutableAccessor();
