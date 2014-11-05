@@ -1,3 +1,5 @@
+import java.lang.reflect.InvocationTargetException;
+
 import com.polyfx.jnphi.*;
 
 public class Test {
@@ -25,9 +27,10 @@ public class Test {
 			}
 			endTime = System.currentTimeMillis();	
 			System.out.println("Total execution time: " + (endTime - startTime)+ "ms");
-		} catch (JNPhiException | InterruptedException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			// gotta' catch'em all..
 		}
 		System.out.println("Done!");
+		System.exit(0);
 	}
 }

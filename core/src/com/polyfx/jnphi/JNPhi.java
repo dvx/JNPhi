@@ -1,5 +1,7 @@
 package com.polyfx.jnphi;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class JNPhi {
 	
 	static {
@@ -64,7 +66,8 @@ public class JNPhi {
 		watcher.interrupt();
 	}
 	
-	public Integer jz() {
+	public Integer jz() throws Exception {
+	     //return Integer.class.getConstructor(int.class).newInstance(0);
 		return new Integer(0);
 	}
 }
