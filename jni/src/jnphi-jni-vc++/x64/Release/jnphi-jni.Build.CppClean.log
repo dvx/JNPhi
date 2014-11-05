@@ -1,9 +1,14 @@
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\vc120.pdb
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi.obj
-f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.exp
+f:\jnphi\jni\bin\jnphi-jni.lib
+f:\jnphi\jni\bin\jnphi-jni.exp
+f:\jnphi\jni\bin\jnphi-jni.dll
+f:\jnphi\jni\bin\jnphi-jni.pdb
+f:\jnphi\jni\src\jnphi-jni-vc++\..\..\bin\jnphi-jni.dll
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\cl.command.1.tlog
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\cl.read.1.tlog
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\cl.write.1.tlog
+f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\jnphi-jni.write.1u.tlog
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\link.command.1.tlog
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\link.read.1.tlog
 f:\jnphi\jni\src\jnphi-jni-vc++\x64\release\jnphi-jni.tlog\link.write.1.tlog

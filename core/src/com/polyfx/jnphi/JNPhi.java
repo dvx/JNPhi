@@ -1,37 +1,76 @@
 package com.polyfx.jnphi;
 
-import java.lang.reflect.InvocationTargetException;
-
+/**
+ * @author David Titarenco
+ *
+ */
 public class JNPhi {
-	
+
 	static {
 		System.loadLibrary("jnphi-jni");
-	}
-
-	private ExecutableAccessor accessor = new ExecutableAccessor();
-	private Object retObj = null;
+	}	
+	
+	private static int idx = -1;
+	
+	// some constants
+	private static final int NO_RETURN = 0;
+	private static final int VOID = 1;
+	private static final int BREAK = 99;
+		
+	// possible return fields
+	private boolean retBoolean;
+	private byte retByte;
+	private char retChar;
+	private short retShort;
+	private int retInt;
+	private long retLong;
+	private float retFloat;
+	private double retDouble;
+	private Object retObject;
+	
+	/*
+	 * retType: the condition variable for the wait() call.
+	 * This means that we wait until retType != NO_RETURN
+	 * ----------
+	 * 0: NO_RETURN
+	 * 1: void
+	 * 2: boolean
+	 * 3: byte
+	 * 4: char
+	 * 5: short
+	 * 6: int
+	 * 7: long
+	 * 8: float
+	 * 9: double
+	 * 10: object
+	 * 99: BREAK
+	 */	
+	private int retType = NO_RETURN;
+	private JNPhiReturnType JNPhiRetType = JNPhiReturnType.NO_RETURN;
+	
 	private Thread watcher;
 
 	private native void watch();
-	public native Integer zero();
+	public native Object zero();
 	
-	/* This is still here for historical reasons
+	/*
+	 * This is here for historical reasons
 	 * 
+	 * */
 	private void testWatch() throws InterruptedException {
 		while (true) {
-			synchronized(this) {
-				while (accessor.consumed()) {
+			synchronized (this) {
+				while (consumed()) {
 					wait();
 				}
 				// do work
-				retObj = accessor.getIdx();
-				accessor.clearBlock();
+				retInt = 42;
+				reset();
 				this.notifyAll();
 			}
 		}
 	}
-	*/
-
+	
 	public JNPhi() {
 		(watcher = new Thread() {
 			@Override
@@ -40,34 +79,68 @@ public class JNPhi {
 			}
 		}).start();
 	}
-	
-	public Object execute(byte[] code) throws JNPhiException, InterruptedException {
-		synchronized(this) {
-			if (!accessor.consumed()) {
-				throw new JNPhiException("Block " + accessor.getIdx() + " not consumed yet.");
+
+	public Object execute(String funcName, JNPhiReturnType type) throws JNPhiException, InterruptedException {
+		synchronized (this) {
+			if (!consumed()) {
+				throw new JNPhiException("Block " + getIdx() + " not consumed yet.");
 			} else {
-				accessor.setBlock(code);
+				prepare(funcName, type);
 				this.notifyAll();
-				return ret();
+				while (!consumed()) {
+					wait();
+				}
+				switch (JNPhiRetType) {
+				case BOOLEAN:
+					return retBoolean;
+				case BYTE:
+					return retByte;
+				case CHAR:
+					return retChar;
+				case DOUBLE:
+					return retDouble;
+				case FLOAT:
+					return retFloat;
+				case INT:
+					return retInt;
+				case LONG:
+					return retLong;
+				case OBJECT:
+					return retObject;
+				case SHORT:
+					return retShort;
+				case NO_RETURN:
+				case VOID:
+				default:
+					return null;
+				}
 			}
 		}
 	}
 
-	private Object ret() throws InterruptedException {
-		synchronized (this) {
-			while (!accessor.consumed()) {
-				wait();
-			}
-		}
-		return retObj;
+	private void prepare(String funcName, JNPhiReturnType type) {
+		++JNPhi.idx;
+		JNPhiRetType = type;
+		retType = type.ordinal();
+	}
+	
+	public boolean consumed() {
+		return (retType == 0 || retType == 99);
+	}
+	
+	public int getIdx() {
+		return JNPhi.idx;
+	}		
+
+	public void reset() {
+		retType = 0;
 	}
 
 	public void unload() {
 		watcher.interrupt();
 	}
 	
-	public Integer jz() throws Exception {
-	     //return Integer.class.getConstructor(int.class).newInstance(0);
-		return new Integer(0);
+	public int native42() {
+		return 42;
 	}
 }

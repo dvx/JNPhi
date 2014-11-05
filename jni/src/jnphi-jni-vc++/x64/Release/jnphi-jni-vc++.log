@@ -1,16 +1,17 @@
-﻿Build started 11/4/2014 12:46:09 AM.
+﻿Build started 11/5/2014 12:20:45 AM.
      1>Project "F:\jnphi\jni\src\jnphi-jni-vc++\jnphi-jni-vc++.vcxproj" on node 2 (Rebuild target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(357,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\Java\jdk1.8.0_20\include" /I"C:\Program Files\Java\jdk1.8.0_20\include\win32" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt JNPhi.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\Java\jdk1.8.0_20\include" /I"C:\Program Files\Java\jdk1.8.0_20\include\win32" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt ..\JNPhi.cpp
          JNPhi.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\jnphi\jni\src\jnphi-jni-vc++\x64\Release\jnphi-jni.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\jnphi\jni\src\jnphi-jni-vc++\x64\Release\jnphi-jni.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\jnphi\jni\src\jnphi-jni-vc++\x64\Release\jnphi-jni.lib" /MACHINE:X64 /DLL x64\Release\JNPhi.obj
-            Creating library F:\jnphi\jni\src\jnphi-jni-vc++\x64\Release\jnphi-jni.lib and object F:\jnphi\jni\src\jnphi-jni-vc++\x64\Release\jnphi-jni.exp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\bin\jnphi-jni.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\bin\jnphi-jni.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\..\bin\jnphi-jni.lib" /MACHINE:X64 /DLL x64\Release\JNPhi.obj
+            Creating library ..\..\bin\jnphi-jni.lib and object ..\..\bin\jnphi-jni.exp
          Generating code
          Finished generating code
-         jnphi-jni-vc++.vcxproj -> F:\jnphi\jni\src\jnphi-jni-vc++\x64\Release\jnphi-jni.dll
+         jnphi-jni-vc++.vcxproj -> F:\jnphi\jni\src\jnphi-jni-vc++\..\..\bin\jnphi-jni.dll
      1>Done Building Project "F:\jnphi\jni\src\jnphi-jni-vc++\jnphi-jni-vc++.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.56
+Time Elapsed 00:00:00.57
