@@ -2,20 +2,20 @@ package com.polyfx.jnphi;
 
 public class ExecutableAccessor {
 	
-	private byte[] block = { };
+	private Class<?> clazz = null;
 	private static int idx = -1;
 	
 	public boolean consumed() {
-		return (block.length == 0);
+		return (this.clazz == null);
 	}
 	
 	public void clearBlock() {
-		this.block = new byte[0];
+		this.clazz = null;
 	}
 
-	public void setBlock(byte[] block) {
+	public void setRType(Class<?> clazz) {
 		++ExecutableAccessor.idx;
-		this.block = block;
+		this.clazz = clazz;
 	}
 	
 	public int getIdx() {

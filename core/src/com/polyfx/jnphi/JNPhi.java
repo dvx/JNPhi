@@ -41,12 +41,12 @@ public class JNPhi {
 		}).start();
 	}
 	
-	public Object execute(byte[] code) throws JNPhiException, InterruptedException {
+	public Object execute(Class<?> clazz) throws JNPhiException, InterruptedException {
 		synchronized(this) {
 			if (!accessor.consumed()) {
 				throw new JNPhiException("Block " + accessor.getIdx() + " not consumed yet.");
 			} else {
-				accessor.setBlock(code);
+				accessor.setRType(clazz);
 				this.notifyAll();
 				return ret();
 			}

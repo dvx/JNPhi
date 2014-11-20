@@ -8,21 +8,21 @@ public class Test {
 		JNPhi ф = new JNPhi();
 		try {
 			long startTime = System.currentTimeMillis();
-			for (int i = 0; i < 10000000; ++i) {
-				ф.execute(new byte[] {});
+			for (int i = 0; i < 10000; ++i) {
+				ф.execute(Integer.class);
 			}
 			long endTime = System.currentTimeMillis();
 			System.out.println("Total execution time: " + (endTime - startTime)+ "ms");
 			
 			startTime = System.currentTimeMillis();
-			for (int i = 0; i < 10000000; ++i) {
+			for (int i = 0; i < 10000; ++i) {
 				ф.zero();
 			}
 			endTime = System.currentTimeMillis();			
 			System.out.println("Total execution time: " + (endTime - startTime)+ "ms");			
 			
 			startTime = System.currentTimeMillis();
-			for (int i = 0; i < 10000000; ++i) {
+			for (int i = 0; i < 10000; ++i) {
 				ф.jz();
 			}
 			endTime = System.currentTimeMillis();	
